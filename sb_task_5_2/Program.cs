@@ -15,19 +15,19 @@ namespace sb_task_5_2
             // 1. Ответ: А
             // 2. ГГГГ, ДДДД        }
 
-            Console.WriteLine(ShortestWord());
+            Console.WriteLine(shortestWord());
 
-            Console.Write(String.Join(", ",LongestWords()));
+            Console.Write(String.Join(", ",longestWords()));
 
         }
 
-        static string ShortestWord(string input = "A ББ ВВВ ГГГГ ДДДД  ДД ЕЕ ЖЖ ЗЗЗ")
+        static string shortestWord(string input = "A ББ ВВВ ГГГГ ДДДД  ДД ЕЕ ЖЖ ЗЗЗ")
         {
             var result = input.Split(new string[] { " ", ",", "!" }, StringSplitOptions.RemoveEmptyEntries);
             return result.OrderBy(s => s.Length).FirstOrDefault();
         }
 
-        static string[] LongestWords(string input = "A ББ ВВВ ГГГГ ДДДД  ДД ЕЕ ЖЖ ЗЗЗ")
+        static string[] longestWords(string input = "A ББ ВВВ ГГГГ ДДДД  ДД ЕЕ ЖЖ ЗЗЗ")
         {
             var result = input.Split(new string[] { " ", ",", "!" }, StringSplitOptions.RemoveEmptyEntries);
             var longestWords = result.GroupBy(s => s.Length).Last().ToArray();
