@@ -17,7 +17,7 @@ namespace sb_task_5_2
 
             Console.WriteLine(shortestWord());
 
-            Console.Write(String.Join(", ",longestWords()));
+            Console.Write(String.Join(", ",LongestWords()));
 
         }
 
@@ -27,7 +27,7 @@ namespace sb_task_5_2
             return result.OrderBy(s => s.Length).FirstOrDefault();
         }
 
-        static string[] longestWords(string input = "A ББ ВВВ ГГГГ ДДДД  ДД ЕЕ ЖЖ ЗЗЗ")
+        static string[] LongestWords(string input = "A ББ ВВВ ГГГГ ДДДД  ДД ЕЕ ЖЖ ЗЗЗ")
         {
             var result = input.Split(new string[] { " ", ",", "!" }, StringSplitOptions.RemoveEmptyEntries);
             var longestWords = result.GroupBy(s => s.Length).Last().ToArray();
